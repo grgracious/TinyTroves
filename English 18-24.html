@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website</title>
+    <style>
+        /* CSS untuk menengahkan teks */
+        body, html {
+            background-color: #EEF5FF;;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* CSS untuk animasi fade out */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        .fade-out {
+            animation: fadeOut 2s ease; /* Mengubah durasi animasi menjadi 2 detik */
+        }
+
+        /* CSS untuk mengatur font teks */
+        h1 {
+            font-family: Arial, sans-serif ;
+            font-size: 4em;
+            color: #176B87;
+            line-height: 1.3;
+        }
+
+        /* CSS untuk menyembunyikan video secara awal */
+        #videoContainer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Teks pertama di tengah halaman -->
+    <div id="mainText">
+        <h1>Learn to Say <br> Please and Thank You</h1>
+    </div>
+
+    <!-- Video pertama yang awalnya disembunyikan -->
+    <div id="videoContainer">
+        <video id="tutorialVideo" controls autoplay width="1300" height="750">
+            <source src="Please and thank you copy.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        // Script untuk menghilangkan teks pertama dan menampilkan video pertama setelahnya
+        document.addEventListener("DOMContentLoaded", function() {
+            var mainText = document.getElementById("mainText");
+            var videoContainer = document.getElementById("videoContainer");
+
+            setTimeout(function() {
+                mainText.classList.add("fade-out");
+                setTimeout(function() {
+                    mainText.style.display = "none"; // Sembunyikan teks pertama
+                    videoContainer.style.display = "block"; // Tampilkan video pertama
+                }, 2000); // 2000 milidetik = 2 detik setelah teks pertama menghilang
+            }, 2000); // 2000 milidetik = 2 detik setelah halaman dimuat
+        });
+    </script>
+</body>
+</html>
